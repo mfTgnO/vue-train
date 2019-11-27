@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--https://cn.vuejs.org/v2/guide/list.html-->
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<ul id="example-1">
+    <li v-for="item in items" v-bind:id="item.id">
+        {{item.message}}
+    </li>
+</ul>
+<button v-on:click="itemsPush">itemsPush</button>
+<button v-on:click="itemsPop">itemsPop</button>
+<script type="text/javascript">
+    var vue = new Vue({
+        el: '#example-1',
+        data: {
+            items: [
+                {id: 1, message: 'Foo'},
+                {id: 2, message: 'Bar'}
+            ]
+        },
+        methods: {
+            itemsPush: function () {
+                this.items = this.items.push({id: 3, message: 'Baz'});
+            },
+            itemsPop: function () {
+                this.items = this.items.pop();
+            }
+        }
+    });
+</script>
+</body>
+</html>
