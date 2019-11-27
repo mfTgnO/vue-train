@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>声明式渲染</title>
+    <title>Title</title>
     <!-- 开发环境版本，包含了有帮助的命令行警告 -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 <div id="app">
-    {{message}}
+    <p v-if="seen">现在你看到我了</p>
 </div>
 <script>
     new Vue({
         el: '#app',
         data: {
-            message: 'Hello Vue!'
+            seen: true
         }
     })
 </script>
