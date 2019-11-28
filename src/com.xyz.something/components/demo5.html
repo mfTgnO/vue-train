@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过插槽分发内容</title>
+    <!--https://cn.vuejs.org/v2/guide/forms.html-->
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style type="text/css">
+    .demo-alert-box {
+        padding: 10px 20px;
+        background: #f3beb8;
+        border: 1px solid #f09898;
+    }
+</style>
+<body>
+<div id="app">
+    <alert-box>
+        Something bad happened.
+    </alert-box>
+</div>
+<script type="text/javascript">
+    Vue.component('alert-box', {
+        template: `
+            <div class="demo-alert-box">
+              <strong>Error!</strong>
+              <slot></slot>
+            </div>
+          `
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

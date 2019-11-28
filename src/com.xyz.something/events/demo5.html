@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <a v-on:click.stop="doThis" href="https://cn.bing.com/?FORM=Z9FD1">bing</a>
+    <!-- 点击事件将只会触发一次 -->
+    <a v-on:click.once="doThis">once</a>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            doThis: function () {
+                console.log('doThis')
+            }
+        }
+    })
+</script>
+</body>
+</html>

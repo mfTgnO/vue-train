@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--https://cn.vuejs.org/v2/guide/forms.html-->
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 当选中时，`picked` 为字符串 "a" -->
+    <input type="radio" v-model="picked" value="a">
+    <span>Picked:{{picked}}</span>
+    <br>
+    <!-- `toggle` 为 true 或 false -->
+    <input type="checkbox" v-model="toggle">
+    <span>Toggle:{{toggle}}</span>
+    <br>
+    <!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+    <select v-model="selected">
+        <option value="abc">ABC</option>
+    </select>
+    <span>Selected:{{selected}}</span>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            picked: '',
+            toggle: '',
+            selected: ''
+        }
+    })
+</script>
+</body>
+</html>
