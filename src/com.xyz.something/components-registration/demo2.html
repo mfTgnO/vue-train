@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部注册</title>
+    <!--https://cn.vuejs.org/v2/guide/components-registration.html-->
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <component-a></component-a>
+</div>
+<script type="text/javascript">
+    var ComponentA = {
+        data: function () {
+            return {
+                name: 'tom'
+            }
+        },
+        template: '<P>{{name}}</P>'
+    }
+
+    new Vue({
+        el: '#app',
+        component: {
+            'component-a': ComponentA
+        }
+    })
+</script>
+</body>
+</html>
