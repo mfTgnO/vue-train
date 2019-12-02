@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prop</title>
+    <!--https://cn.vuejs.org/v2/guide/components-props.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--传入一个数字-->
+    <!-- 即便 `42` 是静态的，我们仍然需要 `v-bind` 来告诉 Vue -->
+    <!-- 这是一个 JavaScript 表达式而不是一个字符串。-->
+    <blog-post v-bind:likes="42"></blog-post>
+
+    <!-- 用一个变量进行动态赋值。-->
+    <blog-post2 v-bind:likes2="post.likes"></blog-post2>
+</div>
+<script type="text/javascript">
+    Vue.component('blog-post', {
+        // 在 JavaScript 中是 camelCase 的
+        props: {
+            likes: Number
+        },
+        template: '<h3>{{likes}}</h3>'
+    })
+
+    Vue.component('blog-post2', {
+        // 在 JavaScript 中是 camelCase 的
+        props: {
+            likes2: Number
+        },
+        template: '<h3>{{likes2}}</h3>'
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            post: {
+                likes: 2233,
+            }
+        }
+    })
+</script>
+</body>
+</html>

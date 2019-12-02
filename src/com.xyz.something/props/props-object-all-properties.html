@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prop</title>
+    <!--https://cn.vuejs.org/v2/guide/components-props.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--
+    传入一个对象的所有属性
+    如果你想要将一个对象的所有属性都作为 prop 传入，
+    你可以使用不带参数的 v-bind (取代 v-bind:prop-name)。例如，对于一个给定的对象 post：
+
+    等价于：
+    <blog-post
+      v-bind:id="post.id"
+      v-bind:title="post.title"
+    ></blog-post>
+    -->
+    <blog-post v-bind="post"></blog-post>
+</div>
+<script type="text/javascript">
+    Vue.component('blog-post', {
+        props: {
+            id: Number,
+            title: String
+        },
+        template: '<h3>{{id}} {{title}}</h3>'
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            post: {
+                id: 1,
+                title: 'My Journey with Vue'
+            }
+        }
+    })
+</script>
+</body>
+</html>

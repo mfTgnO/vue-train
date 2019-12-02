@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据流</title>
+    <!--https://cn.vuejs.org/v2/guide/components-props.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--
+    传入一个对象的所有属性
+    如果你想要将一个对象的所有属性都作为 prop 传入，
+    你可以使用不带参数的 v-bind (取代 v-bind:prop-name)。例如，对于一个给定的对象 post：
+
+    等价于：
+    <blog-post
+      v-bind:id="post.id"
+      v-bind:title="post.title"
+    ></blog-post>
+    -->
+    <blog-post v-bind:initialCounter="post.initialCounter"></blog-post>
+</div>
+<script type="text/javascript">
+    Vue.component('blog-post', {
+        props: [initialCounter],
+        template: '<h1>{{initialCounter}}</h1>'
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            post: {
+                initialCounter: 100
+            }
+        }
+    })
+</script>
+</body>
+</html>

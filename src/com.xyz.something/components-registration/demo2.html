@@ -5,11 +5,18 @@
     <title>局部注册</title>
     <!--https://cn.vuejs.org/v2/guide/components-registration.html-->
     <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <!--
+    PS: 组件注册必须要放在实例前面完成！！
+    否则会出现报错：组件未声明 （Unknown custom element: <magic> - did you register the component correctly?）
+    -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 <div id="app">
     <component-a></component-a>
+    <component-b></component-b>
+    <component-c></component-c>
+    <component-d></component-d>
 </div>
 <script type="text/javascript">
     var ComponentA = {
@@ -20,11 +27,29 @@
         },
         template: '<P>{{name}}</P>'
     }
+    var ComponentB = {
+        data: function () {
+            return {
+                age: 18
+            }
+        },
+        template: '<P>{{age}}</P>'
+    }
+    var ComponentC = {
+        data: function () {
+            return {
+                address: '在注册一个组件的时候，我们始终需要给它一个名字。比如在全局注册的时候我们已经看到了：'
+            }
+        },
+        template: '<P>{{address}}</P>'
+    }
 
     new Vue({
         el: '#app',
-        component: {
-            'component-a': ComponentA
+        components: {
+            'component-a': ComponentA,
+            'component-b': ComponentB,
+            'component-c': ComponentC
         }
     })
 </script>

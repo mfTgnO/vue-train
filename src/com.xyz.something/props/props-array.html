@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prop</title>
+    <!--https://cn.vuejs.org/v2/guide/components-props.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 即便数组是静态的，我们仍然需要 `v-bind` 来告诉 Vue -->
+    <!-- 这是一个 JavaScript 表达式而不是一个字符串。-->
+    <blog-post v-bind:comment-ids="[234, 266, 273]"></blog-post>
+
+    <!-- 用一个变量进行动态赋值。-->
+    <blog-post2 v-bind:comment-ids2="post.commentIds"></blog-post2>
+</div>
+<script type="text/javascript">
+    Vue.component('blog-post', {
+        props: {
+            commentIds: Array
+        },
+        template: '<h3>{{commentIds}}</h3>'
+    })
+
+    Vue.component('blog-post2', {
+        // 在 JavaScript 中是 camelCase 的
+        props: {
+            commentIds2: Array
+        },
+        template: '<h3>{{commentIds2}}</h3>'
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            post: {
+                commentIds: [1, 2, 3]
+            }
+        }
+    })
+</script>
+</body>
+</html>
