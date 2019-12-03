@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件名</title>
+    <!--https://cn.vuejs.org/v2/guide/components-custom-events.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button-counter v-on:click="doSomething">Click</button-counter>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        methods: {
+            doSomething: function () {
+                console.log('click')
+            }
+        }
+    })
+</script>
+</body>
+</html>

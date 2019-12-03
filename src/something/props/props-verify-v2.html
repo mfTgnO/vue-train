@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据流</title>
+    <!--https://cn.vuejs.org/v2/guide/components-props.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--
+    类型检查
+
+    type 可以是下列原生构造函数中的一个：
+
+        String
+        Number
+        Boolean
+        Array
+        Object
+        Date
+        Function
+        Symbol
+
+    额外的，type 还可以是一个自定义的构造函数，并且通过 instanceof 来进行检查确认。例如，给定下列现成的构造函数：
+    -->
+</head>
+<body>
+<div id="app">
+    <my-component :prop-a="person"></my-component>
+</div>
+<script type="text/javascript">
+    function Person(firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+
+    /*
+    * 你可以使用：
+    * 来验证 author prop 的值是否是通过 new Person 创建的。
+    * */
+    Vue.component('my-component', {
+        props: {
+            propA: Person
+        },
+        template: '<div>' +
+            '<h1>{{propA}}</h1>' +
+            '</div>'
+    })
+
+    new Vue({
+        el: "#app",
+        data: {
+            person: new Person('aaa', 'bbb')
+        }
+    })
+</script>
+</body>
+</html>

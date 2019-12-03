@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据流</title>
+    <!--https://cn.vuejs.org/v2/guide/components-props.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--
+    这个 prop 用来传递一个初始值；这个子组件接下来希望将其作为一个本地的 prop 数据来使用。在这种情况下，最好定义一个本地的 data 属性并将这个 prop 用作其初始值：
+    -->
+</head>
+<body>
+<div id="app">
+    <my-component initial-counter='135'></my-component>
+</div>
+<script type="text/javascript">
+    Vue.component('my-component', {
+        props: ['initialCounter'],
+        data: function () {
+            return {
+                counter: this.initialCounter
+            }
+        },
+        template: '<h1>{{initialCounter}}</h1>'
+    })
+
+    new Vue({
+        el: "#app"
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据流</title>
+    <!--https://cn.vuejs.org/v2/guide/components-props.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--
+    我们可以为组件的 prop 指定验证要求，例如你知道的这些类型。如果有一个需求没有被满足，则 Vue 会在浏览器控制台中警告你。这在开发一个会被别人用到的组件时尤其有帮助。
+    为了定制 prop 的验证方式，你可以为 props 中的值提供一个带有验证需求的对象，而不是一个字符串数组。例如：
+    -->
+</head>
+<body>
+<div id="app">
+    <my-component :prop-a="number" :prop-b="age" :prop-c="name" :prop-f="status"></my-component>
+</div>
+<script type="text/javascript">
+    Vue.component('my-component', {
+        props: {
+            // 基础的类型检查 (`null` 和 `undefined` 会通过任何类型验证)
+            propA: Number,
+            // 多个可能的类型
+            propB: [String, Number],
+            // 必填的字符串
+            propC: {
+                type: String,
+                required: true
+            },
+            // 带有默认值的数字
+            propD: {
+                type: Number,
+                default: 100
+            },
+            // 带有默认值的对象
+            propE: {
+                type: Object,
+                // 对象或数组默认值必须从一个工厂函数获取
+                default: function () {
+                    return { message: 'hello' }
+                }
+            },
+            // 自定义验证函数
+            propF: {
+                validator: function (value) {
+                    // 这个值必须匹配下列字符串中的一个
+                    return ['success', 'warning', 'danger'].indexOf(value) !== -1
+                }
+            }
+        },
+        template: '<div>' +
+            '<h1>{{propA}}</h1>' +
+            '<h1>{{propB}}</h1>' +
+            '<h1>{{propC}}</h1>' +
+            '<h1>{{propD}}</h1>' +
+            '<h1>{{propE}}</h1>' +
+            '<h1>{{propF}}</h1>' +
+            '</div>'
+    })
+
+    new Vue({
+        el: "#app",
+        data: {
+            number: 123,
+            age: '18',
+            name: 'tom',
+            status:'warning'
+        }
+    })
+</script>
+</body>
+</html>

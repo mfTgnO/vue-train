@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据流</title>
+    <!--https://cn.vuejs.org/v2/guide/components-props.html-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-component message='来自父组件的数据' warning-text="提示信息"></my-component>
+</div>
+<script type="text/javascript">
+    Vue.component('my-component', {
+        template: '<div>{{warningText}}：{{message}}</div>',
+        props: ['message', 'warningText']
+    })
+    new Vue({
+        el: "#app"
+    })
+</script>
+</body>
+</html>
