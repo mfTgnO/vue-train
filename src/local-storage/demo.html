@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <a href="https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/">LocalStorage
+        in JavaScript</a>
+</head>
+<body>
+<script type="text/javascript">
+    var myStorage = window.localStorage;
+    checkSupport();
+    console.log('---------------------------------');
+    setItem();
+    console.log('---------------------------------');
+    getItem();
+    console.log('---------------------------------');
+    removeItem();
+    console.log('---------------------------------');
+    clear();
+    console.log('---------------------------------');
+    key();
+
+    function checkSupport() {
+        if (typeof (myStorage) !== "undefined") {
+            // Code for localStorage
+            // eslint-disable-next-line no-console
+            console.log('support');
+        } else {
+            // No web storage Support.
+            // eslint-disable-next-line no-console
+            console.log('not support');
+        }
+    }
+
+    // setItem()
+    function setItem() {
+        myStorage.setItem('name', 'Obaseki Nosa');
+
+        // To store arrays or objects you would have to convert them to strings.
+        const person = {
+            name: "Obaseki Nosa",
+            location: "Lagos",
+        };
+
+        myStorage.setItem('user', JSON.stringify(person));
+    }
+
+    // getItem()
+    function getItem() {
+        console.log(myStorage.getItem('name'));
+
+        // This returns a string with value as;
+        console.log(myStorage.getItem('user'));
+        // To use this value, you would have convert it back to an object.
+        // To do this, we make use of JSON.parse() method which converts a JSON string into a Javascript Object.
+        console.log(JSON.parse(myStorage.getItem('user')));
+    }
+
+    // removeItem()
+    // The removeItem() method when passed a key name, will remove that key from the storage if it exists.
+    // If there is no item associated with the given key, this method will do nothing.
+    function removeItem() {
+        myStorage.removeItem('user');
+        getItem();
+    }
+
+    // clear()
+    // This method, when invoked clears the entire storage of all records for that domain. It does not receive any parameters.
+    function clear() {
+        myStorage.clear();
+        getItem();
+    }
+
+    // key()
+    // The key() method comes in handy in situations where you need to loop through keys and allows you pass a number or index to local storage to retrieve the name of the key.
+    function key() {
+        myStorage.setItem('A', 'aaa');
+        myStorage.setItem('B', 'bbb');
+        console.log(myStorage.key(0));
+        console.log(myStorage.key(1));
+    }
+</script>
+</body>
+</html>
