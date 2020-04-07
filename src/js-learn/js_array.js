@@ -12,7 +12,9 @@
 // test7();
 // test8();
 // test9();
-test10();
+// test10();
+// test11();
+test12();
 
 
 // Creating an Array
@@ -61,10 +63,12 @@ function test7() {
     }
 }
 
-// Adding Array Elements
+// push, pop
 function test8() {
     var fruits = ["Banana", "Orange", "Apple", "Mango"];
     fruits.push("Lemon");
+    console.log(fruits);
+    fruits.pop();
     console.log(fruits);
 }
 
@@ -83,4 +87,48 @@ function test10() {
     }
     console.log(arr);
     console.log(arr.toString());
+}
+
+/*
+* Queues using shifting and unshifting
+* https://www.learn-js.org/en/Manipulating_Arrays
+*
+* The shift and unshift methods are similar to push and pop, only they work from the beginning of the array.
+* We can use the push and shift methods consecutively to utilize an array as a queue. For example:
+* */
+function test11() {
+    var myQueue = [];
+    myQueue.push(1);
+    myQueue.push(2);
+    myQueue.push(3);
+
+    console.log(myQueue.shift());
+    console.log(myQueue.shift());
+    console.log(myQueue.shift());
+    console.log(myQueue);
+
+    // The unshift method is used to insert a variable at the beginning of an array. For example:
+    var myArray = [1, 2, 3];
+    myArray.unshift(0);
+    console.log(myArray);
+}
+
+/*
+* Splicing
+* https://www.learn-js.org/en/Manipulating_Arrays
+*
+* Splicing arrays in JavaScript removes a certain part from an array to create a new array,
+* made up from the part we took out.
+* For example, if we wanted to remove the five numbers from the following array beginning from the 3rd index, we would do the following:
+*
+* After splicing the array, it will only contain the part before and after the splicing.
+* The splice is equal to all the variables between 3 and 7 (inclusive), and the remainder of the array,
+* which contains all variables between 0 and 2 (inclusive), and 8 to 9 (inclusive).
+* */
+function test12() {
+    var myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var splice = myArray.splice(3, 5);
+
+    console.log(splice);
+    console.log(myArray);
 }
