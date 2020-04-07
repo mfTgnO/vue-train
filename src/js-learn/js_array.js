@@ -89,7 +89,7 @@ function test10() {
     console.log(arr.toString());
 }
 
-/*
+/**
 * Queues using shifting and unshifting
 * https://www.learn-js.org/en/Manipulating_Arrays
 *
@@ -113,7 +113,7 @@ function test11() {
     console.log(myArray);
 }
 
-/*
+/**
 * Splicing
 * https://www.learn-js.org/en/Manipulating_Arrays
 *

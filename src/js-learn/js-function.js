@@ -1,4 +1,4 @@
-/*
+/**
 * Functions
 *
 * Functions are code blocks that can have arguments, and function have their own scope.
@@ -14,7 +14,7 @@ function greet(name) {
 
 console.log(greet("Eric"));
 
-/*
+/**
 * In this function, the name argument to the greet function is used inside the function to construct a new string and return it using the return statement.
 *
 * To define an anonymous function, we can alternatively use the following syntax:

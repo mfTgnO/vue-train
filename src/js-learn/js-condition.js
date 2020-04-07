@@ -4,7 +4,7 @@
 // test4();
 test5();
 
-/*
+/**
 * The if statement
 * https://www.learn-js.org/en/Conditions
 *
@@ -17,7 +17,7 @@ function test1() {
     console.log("1" === 1);// false
 }
 
-/*
+/**
 * Inequality operators can also be used to evaluate expressions. For example:
 * */
 function test2() {
@@ -28,7 +28,7 @@ function test2() {
     }
 }
 
-/*
+/**
 * Two or more expressions can be evaluated together using logical operators to check if two expressions evaluate
 * to true together, or at least one of them. To check if two expressions both evaluate to true, use the
 * AND operator &&. To check if at least one of the expressions evaluate to true, use the OR operator ||.
@@ -47,7 +47,7 @@ function test3() {
     }
 }
 
-/*
+/**
 * The NOT operator ! can also be used likewise:
 * */
 function test4() {
@@ -57,7 +57,7 @@ function test4() {
     }
 }
 
-/*
+/**
 * The switch statement
 *
 * The switch statement is similar to the switch statement from the C programming language,

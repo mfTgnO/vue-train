@@ -2,7 +2,7 @@
 // test2();
 test3();
 
-/*
+/**
 * The addition operator
 * https://www.learn-js.org/en/Operators
 *
@@ -30,7 +30,7 @@ function test1() {
     console.log(3 / 5);
 }
 
-/*
+/**
 * Advanced mathematical operators
 * JavaScript supports the modulus operator (%) which calculates the remainder of a division operation.
 * */
@@ -54,7 +54,7 @@ function test2() {
     console.log(myNumber);
 }
 
-/*
+/**
 * JavaScript also has a Math module which contains more advanced functions:
 *
 * Math.abs calculates the absolute value of a number

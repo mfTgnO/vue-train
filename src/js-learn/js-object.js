@@ -1,6 +1,6 @@
 test2();
 
-/*
+/**
 * Objects
 * JavaScript is a functional language, and for object oriented programming it uses
 * both objects and functions, but objects are usually used as a data structure,
@@ -17,7 +17,7 @@ function test1() {
     }
 }
 
-/*
+/**
 * Member addressing
 * Members of objects can be addressed using the brackets operator [], very much like arrays,
 * but just like many other object oriented languages, the period . operator can also be used.

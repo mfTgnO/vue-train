@@ -2,7 +2,7 @@
 // test2();
 test3();
 
-/*
+/**
 * Loops
 * https://www.learn-js.org/en/Loops
 *
@@ -23,7 +23,7 @@ function test1() {
     }
 }
 
-/*
+/**
 * The while statement
 * The while statement is a more simple version of the for statement which checks if an
 * expression evaluates to true and runs as long as it says true.
@@ -36,7 +36,7 @@ function test2() {
     }
 }
 
-/*
+/**
 * break and continue statements
 * The break statement allows to stop the execution of a loop.
 * For example, we can create a loop that loops forever using while(true) and use the break statement
