@@ -1,7 +1,8 @@
 // test1();
-test2();
+// test2();
 
 // test3();
+test4();
 
 /**
  * replace
@@ -41,4 +42,17 @@ function test3() {
     console.log(url);
     console.log(domain);
     console.log(url_);
+}
+
+function test4() {
+    // var url = '../../../doctor_train/ui/module/schoolMain.htm';
+    // var str = '0,100';
+    var str = '0';
+    var split = str.split(",");
+    // var number = str.indexOf('100');
+    // console.log('number: '+number);
+    // var number = str.indexOf('200');
+    // console.log('number: '+number);
+    console.log(split);
+    console.log(split.length);
 }
