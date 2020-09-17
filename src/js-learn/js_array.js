@@ -15,6 +15,8 @@
 // test10();
 // test11();
 test12();
+// test13();
+// test14();
 
 
 // Creating an Array
@@ -90,12 +92,12 @@ function test10() {
 }
 
 /**
-* Queues using shifting and unshifting
-* https://www.learn-js.org/en/Manipulating_Arrays
-*
-* The shift and unshift methods are similar to push and pop, only they work from the beginning of the array.
-* We can use the push and shift methods consecutively to utilize an array as a queue. For example:
-* */
+ * Queues using shifting and unshifting
+ * https://www.learn-js.org/en/Manipulating_Arrays
+ *
+ * The shift and unshift methods are similar to push and pop, only they work from the beginning of the array.
+ * We can use the push and shift methods consecutively to utilize an array as a queue. For example:
+ * */
 function test11() {
     var myQueue = [];
     myQueue.push(1);
@@ -114,21 +116,63 @@ function test11() {
 }
 
 /**
-* Splicing
-* https://www.learn-js.org/en/Manipulating_Arrays
-*
-* Splicing arrays in JavaScript removes a certain part from an array to create a new array,
-* made up from the part we took out.
-* For example, if we wanted to remove the five numbers from the following array beginning from the 3rd index, we would do the following:
-*
-* After splicing the array, it will only contain the part before and after the splicing.
-* The splice is equal to all the variables between 3 and 7 (inclusive), and the remainder of the array,
-* which contains all variables between 0 and 2 (inclusive), and 8 to 9 (inclusive).
-* */
+ * Splicing
+ * https://www.learn-js.org/en/Manipulating_Arrays
+ *
+ * Splicing arrays in JavaScript removes a certain part from an array to create a new array,
+ * made up from the part we took out.
+ * For example, if we wanted to remove the five numbers from the following array beginning from the 3rd index, we would do the following:
+ *
+ * After splicing the array, it will only contain the part before and after the splicing.
+ * The splice is equal to all the variables between 3 and 7 (inclusive), and the remainder of the array,
+ * which contains all variables between 0 and 2 (inclusive), and 8 to 9 (inclusive).
+ * */
 function test12() {
     var myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    var splice = myArray.splice(3, 5);
 
+    var splice = myArray.splice(0, 1);
+    // var splice = myArray.splice(3, 5);
+    //
     console.log(splice);
     console.log(myArray);
+}
+
+/**
+ * Array.prototype.sort()
+ */
+function test13() {
+    var items = [
+        {name: 'Edward', value: 21},
+        {name: 'Sharpe', value: 37},
+        {name: 'And', value: 45},
+        {name: 'The', value: -12},
+        {name: 'Magnetic', value: 13},
+        {name: 'Zeros', value: 37}
+    ];
+    console.log(items);
+
+    // sort by value
+    items.sort(function (a, b) {
+        return a.value - b.value;
+    });
+    console.log(items);
+}
+
+function test14() {
+    var arr = [];
+    arr.push(1);
+    arr.push(2);
+    arr.push(3);
+    arr.push(4);
+    arr.push(5);
+
+    console.log(arr);
+    var idx = arr.indexOf(2);
+    console.log(idx);
+    arr.splice(idx, 1);
+    console.log(arr);
+
+    for (var i = 0; i < arr.length; i++) {
+        var arrElement = arr[i];
+    }
 }
