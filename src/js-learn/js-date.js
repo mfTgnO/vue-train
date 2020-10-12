@@ -47,7 +47,12 @@
 // test19();
 // test20();
 // test21();
-test22();
+// test22();
+// test23();
+// test24();
+// test25();
+// test26();
+test27();
 
 /**
  * Date.now()
@@ -77,9 +82,48 @@ function test1() {
     }, 2000);
 }
 
+/**
+ * Date.prototype.toLocaleString()
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
+ *
+ * The toLocaleString() method returns a string with a language sensitive representation of this date.
+ *
+ * The new locales and options arguments let applications specify the language whose formatting conventions should be used and customize the behavior of the function.
+ *
+ * In older implementations, which ignore the locales and options arguments, the locale used and the form of the string returned are entirely implementation-dependent.
+ *
+ * Syntax
+ * dateObj.toLocaleString([locales[, options]])
+ *
+ * Parameters
+ * The locales and options arguments customize the behavior of the function and let applications
+ * specify the language whose formatting conventions should be used. In implementations, which
+ * ignore the locales and options arguments, the locale used and the form of the string returned are entirely implementation dependent.
+ *
+ * See the Intl.DateTimeFormat() constructor for details on these parameters and how to use them.
+ *
+ * The default value for each date-time component property is undefined. But, if the weekday,
+ * year, month, and day properties are all undefined, then year, month, and day are assumed to be "numeric".
+ *
+ * Return value
+ * A string representing the given date according to language-specific conventions.
+ *
+ * Performance
+ * When formatting large numbers of dates, it is better to create an Intl.DateTimeFormat object and use the function provided by its format property.
+ */
 function test2() {
     var date = new Date().toLocaleString();
     console.log(date);
+
+    const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
+
+    // British English uses day-month-year order and 24-hour time without AM/PM
+    console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' }));
+    // expected output: 20/12/2012, 03:00:00
+
+    // Korean uses year-month-day order and 12-hour time with AM/PM
+    console.log(event.toLocaleString('ko-KR', { timeZone: 'UTC' }));
+    // expected output: 2012. 12. 20. 오전 3:00:00
 }
 
 /**
@@ -666,4 +710,153 @@ function test22() {
     console.log(event2);
     // expected output: Thu Jul 01 1999 00:00:00 GMT+0200 (CEST)
     // (note: your timezone may vary)
+}
+
+/**
+ * Date.prototype.toDateString()
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toDateString
+ *
+ * The toDateString() method returns the date portion of a Date object in English in the following format separated by spaces:
+ *
+ * 1.First three letters of the week day name
+ * 2.First three letters of the month name
+ * 3.Two digit day of the month, padded on the left a zero if necessary
+ * 4.Four digit year (at least), padded on the left with zeros if necessary
+ * E.g. "Thu Jan 01 1970".
+ */
+function test23() {
+    const event = new Date(1993, 6, 28, 14, 39, 7);
+
+    console.log(event.toString());
+    // expected output: Wed Jul 28 1993 14:39:07 GMT+0200 (CEST)
+    // (note: your timezone may vary)
+
+    console.log(event.toDateString());
+    // expected output: Wed Jul 28 1993
+}
+
+/**
+ * Date.prototype.toJSON()
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON
+ *
+ * The toJSON() method returns a string representation of the Date object.
+ *
+ * Syntax
+ * dateObj.toJSON()
+ *
+ * Return value
+ * A string representation of the given date.
+ *
+ * Description
+ * Date instances refer to a specific point in time. Calling toJSON() returns a string (using toISOString()) representing the Date object's value.
+ * This method is generally intended to, by default, usefully serialize Date objects during JSON serialization.
+ *
+ */
+function test24() {
+    const event = new Date('August 19, 1975 23:15:30 UTC');
+
+    const jsonDate = event.toJSON();
+
+    console.log(jsonDate);
+    // expected output: 1975-08-19T23:15:30.000Z
+
+    console.log(new Date(jsonDate).toUTCString());
+    // expected output: Tue, 19 Aug 1975 23:15:30 GMT
+}
+
+/**
+ * Date.prototype.toLocaleDateString()
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+ *
+ * The toLocaleDateString() method returns a string with a language sensitive representation of the date portion of this date.
+ * The new locales and options arguments let applications specify the language whose formatting conventions should be used
+ * and allow to customize the behavior of the function. In older implementations, which ignore the locales and options arguments,
+ * the locale used and the form of the string returned are entirely implementation dependent.
+ *
+ * Syntax
+ * dateObj.toLocaleDateString([locales [, options]])
+ *
+ * Parameters
+ * The locales and options arguments customize the behavior of the function and let applications specify the
+ * language whose formatting conventions should be used. In implementations, which ignore the locales and
+ * options arguments, the locale used and the form of the string returned are entirely implementation dependent.
+ *
+ * See the Intl.DateTimeFormat() constructor for details on these parameters and how to use them.
+ *
+ * The default value for each date-time component property is undefined, but if the weekday, year, month,
+ * day properties are all undefined, then year, month, and day are assumed to be "numeric".
+ *
+ * Return value
+ * A string representing the date portion of the given Date instance according to language-specific conventions.
+ *
+ * Performance
+ * When formatting large numbers of dates, it is better to create an Intl.DateTimeFormat object and use the function provided by its format property.
+ */
+function test25() {
+    const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
+
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+    console.log(event.toLocaleDateString('de-DE', options));
+    // expected output: Donnerstag, 20. Dezember 2012
+
+    console.log(event.toLocaleDateString('ar-EG', options));
+    // expected output: الخميس، ٢٠ ديسمبر، ٢٠١٢
+
+    console.log(event.toLocaleDateString(undefined, options));
+    // expected output: Thursday, December 20, 2012 (varies according to default locale)
+}
+
+/**
+ * Date.prototype.toString()
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toString
+ *
+ * The toString() method returns a string representing the specified Date object.
+ *
+ * Syntax
+ * dateObj.toString()
+ *
+ * Return value
+ * A string representing the given date.
+ *
+ */
+function test26() {
+    const event = new Date('August 19, 1975 23:15:30');
+
+    console.log(event.toString());
+    // expected output: Tue Aug 19 1975 23:15:30 GMT+0200 (CEST)
+    // (note: your timezone may vary)
+
+}
+
+/**
+ * Date.prototype.valueOf()
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf
+ *
+ * The valueOf() method returns the primitive value of a Date object.
+ *
+ * Syntax
+ * dateObj.valueOf()
+ *
+ * Return value
+ * The number of milliseconds between 1 January 1970 00:00:00 UTC and the given date.
+ *
+ * Description
+ * The valueOf() method returns the primitive value of a Date object as a number data type, the number of milliseconds since midnight 01 January, 1970 UTC.
+ *
+ * This method is functionally equivalent to the Date.prototype.getTime() method.
+ *
+ * This method is usually called internally by JavaScript and not explicitly in code.
+ */
+function test27() {
+    const date1 = new Date(Date.UTC(96, 1, 2, 3, 4, 5));
+
+    console.log(date1.valueOf());
+    // expected output: 823230245000
+
+    const date2 = new Date('02 Feb 1996 03:04:05 GMT');
+
+    console.log(date2.valueOf());
+    // expected output: 823230245000
+
 }
