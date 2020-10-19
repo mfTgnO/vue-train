@@ -39,7 +39,8 @@
 // test19();
 // test20();
 // test21();
-test22();
+// test22();
+test23();
 
 
 /**
@@ -2055,7 +2056,7 @@ function test21_2() {
  * then removes its last element and decrements the length parameter.
  */
 function test21_3() {
-    var myFish = {0:'angel', 1:'clown', 2:'mandarin', 3:'sturgeon', length: 4};
+    var myFish = {0: 'angel', 1: 'clown', 2: 'mandarin', 3: 'sturgeon', length: 4};
 
     var popped = Array.prototype.pop.call(myFish); //same syntax for using apply( )
 
@@ -2092,5 +2093,228 @@ function test21_3() {
  * are immutable.  Similarly for the native, Array-like object arguments.
  */
 function test22() {
+    // test22_1();
+    // test22_2();
+    // test22_3();
+    test22_4();
+}
 
+function test22_1() {
+    const animals = ['pigs', 'goats', 'sheep'];
+
+    const count = animals.push('cows');
+    console.log(count);
+    // expected output: 4
+    console.log(animals);
+    // expected output: Array ["pigs", "goats", "sheep", "cows"]
+
+    animals.push('chickens', 'cats', 'dogs');
+    console.log(animals);
+    // expected output: Array ["pigs", "goats", "sheep", "cows", "chickens", "cats", "dogs"]
+}
+
+/**
+ * Adding elements to an array
+ * The following code creates the sports array containing two elements, then appends two elements to it.
+ * The total variable contains the new length of the array.
+ */
+function test22_2() {
+    let sports = ['soccer', 'baseball'];
+    let total = sports.push('football', 'swimming');
+
+    console.log(sports);  // ['soccer', 'baseball', 'football', 'swimming']
+    console.log(total);   // 4
+}
+
+/**
+ * Merging two arrays
+ * This example uses apply() to push all elements from a second array.
+ *
+ * Do not use this method if the second array (moreVegs in the example) is very large because the maximum number
+ * of parameters that one function can take is limited in practice. See apply() for more details.
+ */
+function test22_3() {
+    let vegetables = ['parsnip', 'potato'];
+    let moreVegs = ['celery', 'beetroot'];
+
+    // Merge the second array into the first one
+    // Equivalent to vegetables.push('celery', 'beetroot')
+    Array.prototype.push.apply(vegetables, moreVegs);
+
+    console.log(vegetables);  // ['parsnip', 'potato', 'celery', 'beetroot']
+}
+
+/**
+ * Using an object in an array-like fashion
+ * As mentioned above, push is intentionally generic, and we can use that to our advantage.
+ * Array.prototype.push can work on an object just fine, as this example shows.
+ *
+ * Note that we don't create an array to store a collection of objects. Instead, we store the collection
+ * on the object itself and use call on Array.prototype.push to trick the method into thinking we are
+ * dealing with an array—and it just works, thanks to the way JavaScript allows us to establish the
+ * execution context in any way we want.
+ *
+ * Note that although obj is not an array, the method push successfully incremented obj's length property
+ * just like if we were dealing with an actual array.
+ */
+function test22_4() {
+    let obj = {
+        length: 0,
+
+        addElem: function addElem(elem) {
+            // obj.length is automatically incremented
+            // every time an element is added.
+            [].push.call(this, elem);
+        }
+    };
+
+    // Let's add some empty objects just to illustrate.
+    obj.addElem({});
+    obj.addElem({});
+    console.log(obj.length);
+    console.log(obj);
+    // → 2
+}
+
+/**
+ * Array.prototype.reduce()
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+ *
+ * The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in single output value.
+ *
+ * The reducer function takes four arguments:
+ *
+ * Accumulator (acc)
+ * Current Value (cur)
+ * Current Index (idx)
+ * Source Array (src)
+ * Your reducer function's returned value is assigned to the accumulator, whose value is remembered across each
+ * iteration throughout the array, and ultimately becomes the final, single resulting value.
+ *
+ * Syntax
+ * arr.reduce(callback( accumulator, currentValue[, index[, array]] ) {
+ * // return result from executing something for accumulator or currentValue
+ * }[, initialValue]);
+ *
+ * Parameters
+ * callback
+ * A function to execute on each element in the array (except for the first, if no initialValue is supplied).
+ *
+ * It takes four arguments:
+ *
+ *      accumulator
+ *      The accumulator accumulates callback's return values. It is the accumulated value previously returned
+ *      in the last invocation of the callback—or initialValue, if it was supplied (see below).
+ *
+ *      currentValue
+ *      The current element being processed in the array.
+ *
+ *      index Optional
+ *      The index of the current element being processed in the array. Starts from index 0 if an initialValue
+ *      is provided. Otherwise, it starts from index 1.
+ *
+ *      array Optional
+ *      The array reduce() was called upon.
+ *
+ *      initialValue Optional
+ *      A value to use as the first argument to the first call of the callback. If no initialValue is supplied,
+ *      the first element in the array will be used as the initial accumulator value and skipped as currentValue.
+ *      Calling reduce() on an empty array without an initialValue will throw a TypeError.
+ *
+ * Return value
+ * The single value that results from the reduction.
+ */
+function test23() {
+    // test23_1();
+    // test23_2();
+    // test23_3();
+    // test23_4();
+    // test23_5();
+    // test23_6();
+    test23_7();
+}
+
+function test23_1() {
+    const array1 = [1, 2, 3, 4];
+    const reducer = (accumulator, currentValue) => (accumulator + currentValue);
+
+    // 1 + 2 + 3 + 4
+    console.log(array1.reduce(reducer));
+    // expected output: 10
+
+    // 5 + 1 + 2 + 3 + 4
+    console.log(array1.reduce(reducer, 5));
+    // expected output: 15
+}
+
+/**
+ * Sum all the values of an array
+ */
+function test23_2() {
+    let sum = [0, 1, 2, 3].reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue;
+    }, 0);
+    console.log(sum);
+}
+
+/**
+ * Alternatively written with an arrow function:
+ */
+function test23_3() {
+    let sum = [0, 1, 2, 3].reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    console.log(sum);
+}
+
+/**
+ * Sum of values in an object array
+ * To sum up, the values contained in an array of objects, you must supply an initialValue,
+ * so that each item passes through your function.
+ */
+function test23_4() {
+    let initialValue = 0;
+    let sum = [{x: 1}, {x: 2}, {x: 3}].reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue.x;
+    }, initialValue);
+
+    console.log(sum); // logs 6
+}
+
+/**
+ * Alternatively written with an arrow function:
+ */
+function test23_5() {
+    let initialValue = 0;
+    let sum = [{x: 1}, {x: 2}, {x: 3}].reduce(
+        (accumulator, currentValue) => accumulator + currentValue.x
+        , initialValue
+    );
+
+    console.log(sum); // logs 6
+}
+
+/**
+ * Flatten an array of arrays
+ */
+function test23_6() {
+    let flattened = [[0, 1], [2, 3], [4, 5]].reduce(
+        function (accumulator, currentValue) {
+            return accumulator.concat(currentValue);
+        },
+        []
+    );
+
+    console.log(flattened);
+    // flattened is [0, 1, 2, 3, 4, 5]
+}
+
+/**
+ * Alternatively written with an arrow function:
+ */
+function test23_7() {
+    let flattened = [[0, 1], [2, 3], [4, 5]].reduce(
+        (accumulator, currentValue) => accumulator.concat(currentValue),
+        []
+    );
+
+    console.log(flattened);
 }
