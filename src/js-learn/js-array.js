@@ -2231,7 +2231,15 @@ function test23() {
     // test23_4();
     // test23_5();
     // test23_6();
-    test23_7();
+    // test23_7();
+    // test23_8();
+    // test23_9();
+    // test23_10();
+    // test23_11();
+    // test23_12();
+    // test23_13();
+    // test23_14();
+    test23_15();
 }
 
 function test23_1() {
@@ -2317,4 +2325,224 @@ function test23_7() {
     );
 
     console.log(flattened);
+}
+
+/**
+ * Counting instances of values in an object
+ */
+function test23_8() {
+    let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+
+    let countedNames = names.reduce(function (allNames, name) {
+        if (name in allNames) {
+            allNames[name]++;
+        } else {
+            allNames[name] = 1;
+        }
+        return allNames;
+    }, {});
+
+    console.log(countedNames);
+}
+
+/**
+ * Grouping objects by a property
+ */
+function test23_9() {
+    let people = [
+        {name: 'Alice', age: 21},
+        {name: 'Max', age: 20},
+        {name: 'Jane', age: 20}
+    ];
+
+    function groupBy(objectArray, property) {
+        return objectArray.reduce(function (acc, obj) {
+            let key = obj[property];
+            if (!acc[key]) {
+                acc[key] = [];
+            }
+            acc[key].push(obj);
+            return acc;
+        }, {});
+    }
+
+    var groupedPeople = groupBy(people, 'age');
+    console.log(groupedPeople);
+    // groupedPeople is:
+    // {
+    //   20: [
+    //     { name: 'Max', age: 20 },
+    //     { name: 'Jane', age: 20 }
+    //   ],
+    //   21: [{ name: 'Alice', age: 21 }]
+    // }
+}
+
+/**
+ * Bonding arrays contained in an array of objects using the spread operator and initialValue
+ */
+function test23_10() {
+    // friends - an array of objects
+    // where object field "books" is a list of favorite books
+    let friends = [{
+        name: 'Anna',
+        books: ['Bible', 'Harry Potter'],
+        age: 21
+    }, {
+        name: 'Bob',
+        books: ['War and peace', 'Romeo and Juliet'],
+        age: 26
+    }, {
+        name: 'Alice',
+        books: ['The Lord of the Rings', 'The Shining'],
+        age: 18
+    }];
+
+    // allbooks - list which will contain all friends' books +
+    // additional list contained in initialValue
+    let allbooks = friends.reduce(function (accumulator, currentValue) {
+        return [...accumulator, ...currentValue.books];
+    }, ['Alphabet']);
+
+    console.log(allbooks);
+    // allbooks = [
+    //   'Alphabet', 'Bible', 'Harry Potter', 'War and peace',
+    //   'Romeo and Juliet', 'The Lord of the Rings',
+    //   'The Shining'
+    // ]
+}
+
+/**
+ * Remove duplicate items in an array
+ * Note: If you are using an environment compatible with Set and Array.from(), you could use let
+ * orderedArray = Array.from(new Set(myArray)) to get an array where duplicate items have been removed.
+ */
+function test23_11() {
+    let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd'];
+    var myOrderArray = myArray.reduce(function (accumulator, currentValue) {
+        if (accumulator.indexOf(currentValue) === -1) {
+            accumulator.push(currentValue);
+        }
+        return accumulator;
+    }, []);
+    console.log(myOrderArray);
+    // [ 'a', 'b', 'c', 'e', 'd' ]
+}
+
+/**
+ * Replace .filter().map() with .reduce()
+ * Using Array.filter() then Array.map() traverses the array twice, but you can achieve the same effect
+ * while traversing only once with Array.reduce(), thereby being more efficient. (If you like for loops,
+ * you can filter and map while traversing once with Array.forEach()).
+ */
+function test23_12() {
+    const numbers = [-5, 6, 2, 0,];
+
+    const doubledPositiveNumbers = numbers.reduce((accumulator, currentValue) => {
+        if (currentValue > 0) {
+            const doubled = currentValue * 2;
+            accumulator.push(doubled);
+        }
+        return accumulator;
+    }, []);
+
+    console.log(doubledPositiveNumbers);
+    // [ 12, 4 ]
+}
+
+/**
+ * Running Promises in Sequence
+ */
+function test23_13() {
+    /*
+     * Runs promises from array of functions that can return promises
+     * in chained manner
+     *
+     * @param {array} arr - promise arr
+     * @return {Object} promise object
+     */
+    function runPromiseInSequence(arr, input) {
+        return arr.reduce(
+            (promiseChain, currentFunction) => promiseChain.then(currentFunction),
+            Promise.resolve(input)
+        )
+    }
+
+    // promise function 1
+    function p1(a) {
+        return new Promise((resolve, reject) => {
+            resolve(a * 5)
+        })
+    }
+
+    // promise function 2
+    function p2(a) {
+        return new Promise((resolve, reject) => {
+            resolve(a * 2)
+        })
+    }
+
+    // function 3  - will be wrapped in a resolved promise by .then()
+    function f3(a) {
+        return a * 3
+    }
+
+    // promise function 4
+    function p4(a) {
+        return new Promise((resolve, reject) => {
+            resolve(a * 4)
+        })
+    }
+
+    const promiseArr = [p1, p2, f3, p4];
+    runPromiseInSequence(promiseArr, 10)
+        .then(console.log);   // 1200
+}
+
+/**
+ * Function composition enabling piping
+ */
+function test23_14() {
+    // Building-blocks to use for composition
+    const double = x => x + x;
+    const triple = x => 3 * x;
+    const quadruple = x => 4 * x;
+
+    // Function composition enabling pipe functionality
+    const pipe = (...functions) => input => functions.reduce(
+        (acc, fn) => fn(acc),
+        input
+    );
+
+    // Composed functions for multiplication of specific values
+    const multiply6 = pipe(double, triple);
+    const multiply9 = pipe(triple, triple);
+    const multiply16 = pipe(quadruple, quadruple);
+    const multiply24 = pipe(double, triple, quadruple);
+
+    // Usage
+    console.log(multiply6(6));   // 36
+    console.log(multiply9(9));   // 81
+    console.log(multiply16(16)); // 256
+    console.log(multiply24(10)); // 240
+}
+
+/**
+ * Write map using reduce
+ */
+function test23_15() {
+    if (!Array.prototype.mapUsingReduce) {
+        Array.prototype.mapUsingReduce = function (callback, thisArg) {
+            return this.reduce(function (mappedArray, currentValue, index, array) {
+                mappedArray[index] = callback.call(thisArg, currentValue, index, array);
+                return mappedArray;
+            }, []);
+        }
+    }
+
+    var x = [1, 2, , 3].mapUsingReduce(
+        (currentValue, index, array) => currentValue + index + array.length
+    );
+    console.log(x);
+    // [5, 7, , 10]
 }
