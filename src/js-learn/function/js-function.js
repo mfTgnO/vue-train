@@ -5,7 +5,9 @@
  */
 // test1();
 // test2();
-test4();
+// test4();
+// test5();
+test6();
 
 /**
  *
@@ -151,6 +153,40 @@ function test4() {
     // f() === 2 in non-strict mode
 }
 
+/**
+ * Returning a formatted number
+ * The following function returns a string containing the formatted representation
+ * of a number padded with leading zeros.
+ */
 function test5() {
-    
+    // This function returns a string padded with leading zeros
+    function padZero(num, totalLen) {
+        var numStr = num.toString();// Initialize return value as string
+        var numZeros = totalLen - numStr.length;// Calculate no. of zeros
+        for (let i = 1; i <= numZeros; i++) {
+            numStr = "0" + numStr;
+        }
+        return numStr;
+    }
+
+    console.log(padZero(42, 4));
+    console.log(padZero(42, 2));
+    console.log(padZero(5, 4));
+}
+
+/**
+ * Determining whether a function exists
+ * You can determine whether a function exists by using the typeof operator. In the following example,
+ * a test is performed to determine if the window object has a property called noFunc that is a function.
+ * If so, it is used; otherwise, some other action is taken.
+ *
+ * Note that in the if test, a reference to noFunc is used—there are no brackets "()" after the function
+ * name so the actual function is not called.
+ */
+function test6() {
+    if ('function' === typeof window.noFunc) {
+        // use noFunc()
+    } else {
+        // do something else
+    }
 }
