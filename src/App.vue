@@ -7,6 +7,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import abc from './js-learn/built-in-objects/promise.js'
 
 export default {
   name: 'app',

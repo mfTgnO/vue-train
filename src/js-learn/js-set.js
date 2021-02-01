@@ -18,14 +18,14 @@
  */
 
 // test1();
-// test2();
+test2();
 // test3();
 // test4();
 // test5();
 // test6();
 // test7();
 // test8();
-test9();
+// test9();
 
 /**
  * Set.prototype.size
@@ -43,6 +43,8 @@ function test1() {
     set.add('forty two');
     set.add(object1);
 
+    console.log(set);
+    console.log("---------------");
     console.log(set.size);
 }
 
@@ -58,6 +60,8 @@ function test2() {
     set.add(42);
     set.add(13);
     set.add(5).add('some text'); // chainable
+
+    console.log(set);
 
     for (const item of set) {
         console.log(item);

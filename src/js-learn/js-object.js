@@ -3,7 +3,8 @@
 // test4();
 // test5();
 // test6();
-test7();
+// test7();
+test8();
 
 /**
  * Objects
@@ -568,4 +569,22 @@ function test7_1() {
 
     me.printIntroduction();
     // expected output: "My name is Matthew. Am I human? true"
+}
+
+function test8() {
+    var student = {};
+    console.log(student);
+    student.name = "tom";
+    student.age = 18;
+    console.log(student);
+
+    delete student.name;
+    // student.name = undefined;
+    console.log(student);
+
+    // student.name = null;
+    // console.log(student);
+
+    // student.name = undefined;
+    // console.log(student);
 }

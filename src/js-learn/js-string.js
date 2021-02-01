@@ -1,5 +1,5 @@
 // test1();
-// test2();
+test2();
 
 // test3();
 // test4();
@@ -42,7 +42,11 @@
 // test41();
 // test42();
 // test43();
-test44();
+// test44();
+// test45();
+// test46();
+// test47();
+// test48();
 
 /**
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -962,7 +966,7 @@ function test44_2() {
 }
 
 function test44_3() {
-    String.raw`Hi\n${2+3}!`;
+    String.raw`Hi\n${2 + 3}!`;
     // 'Hi\n5!', the character after 'Hi'
     // is not a newline character,
     // '\' and 'n' are two characters.
@@ -993,5 +997,83 @@ function test44_3() {
     // For example, 'test' is treated as ['t', 'e', 's', 't'].
     // The following is equivalent to
     // `t${0}e${1}s${2}t`:
-    String.raw({ raw: 'test' }, 0, 1, 2); // 't0e1s2t'
+    String.raw({raw: 'test'}, 0, 1, 2); // 't0e1s2t'
+}
+
+function test45() {
+    var msg1 = 'Hello, World!';
+    var msg2 = 'Hello,\nWorld!';
+    console.log(msg1);
+    console.log(msg2);
+}
+
+function test46() {
+    test46_1();
+    // test46_2();
+}
+
+function test46_1() {
+    var phone = 1000;
+    for (let i = 1; i <= 100; i++) {
+        // console.log(name + i);
+        // console.log(parseInt(id) + 1);
+        // console.log(parseInt(id2) + i);
+        var num = phone + i;
+        console.log('1360000' + num);
+
+    }
+}
+
+function test46_2() {
+    // var name = '陈粒';
+    var name = '陈粒';
+    // var id = BigInt('220181199302192550');
+    var id = 220181199302192550;
+    var id2 = 1000;
+    for (let i = 1; i <= 100; i++) {
+        // console.log(name + i);
+        // console.log(parseInt(id) + 1);
+        // console.log(parseInt(id2) + i);
+        var num = id2 + i;
+        console.log('22018119930219' + num);
+
+    }
+}
+
+function test47() {
+    var str = "http://localhost:8070/doctor_train/ui/spirit/exercises.htm?type=0&existexercisesidlist=3181";
+    // // var str = "http://localhost:8070/doctor_train/ui/spirit/exercises.htm?type=0";
+    // var split = str.split("existexercisesidlist=");
+    // console.log(split.length);
+    // console.log(split);
+    // if(){
+    //
+    // }
+
+    var existexercisesidlist = get("existexercisesidlist", str);
+    console.log(existexercisesidlist);
+
+}
+
+function get(param, url) {
+    url = url ? url : window.location.search;
+    var params = (url.substr(url.indexOf("?") + 1)).split("&");
+    if (params != null) {
+        for (var i = 0; i < params.length; i++) {
+            var strs = params[i].split("=");
+            if (strs[0] == param) {
+                return decodeURI(strs[1]);
+            }
+        }
+    }
+};
+
+function test48() {
+    var src = "http://localhost:8070/doctor_train/ui/module/roundexam.htm?1=36319";
+    var lastIndexOf = src.lastIndexOf("/");
+    console.log(lastIndexOf);
+    var s = src.substring(0, lastIndexOf + 1);
+    console.log(s);
+    var x = s + "roundexamdetail.htm";
+    console.log(x);
 }

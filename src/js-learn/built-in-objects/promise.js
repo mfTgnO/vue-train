@@ -1,3 +1,5 @@
+export default
+
 /**
  * Promise
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -10,7 +12,7 @@
 // test3();
 // test4();
 // test5();
-test6();
+// test6();
 
 /**
  * Promise.all()
@@ -262,8 +264,8 @@ function test4_2() {
  * was fulfilled (or rejected) with.
  */
 function test5() {
-    // test5_1();
-    test5_2();
+    test5_1();
+    // test5_2();
 }
 
 /**
@@ -329,6 +331,9 @@ function test5_2() {
  */
 function test6() {
     test6_1();
+    // test6_2();
+    // test6_3();
+    // test6_4();
 }
 
 /**
@@ -351,7 +356,7 @@ function test6_1() {
     Promise.any(promises).then(value => console.log(value));*/
 
 
-//    ============
+    //    ============
     const promise1 = Promise.reject(0);
     const promise2 = new Promise((resolve) => setTimeout(resolve, 100, 'quick'));
     const promise3 = new Promise((resolve) => setTimeout(resolve, 500, 'slow'));
@@ -360,5 +365,54 @@ function test6_1() {
 
     Promise.any(promises).then((value) => console.log(value));
 
-// expected output: "quick"
+    // expected output: "quick"
+}
+
+/**
+ * Examples
+ * First to fulfil
+ * Promise.any() resolves with the first promise to fulfil, even if a promise rejects first.
+ * This is in contrast to Promise.race(), which resolves or rejects with the first promise to settle.
+ */
+function test6_2() {
+    const pErr = new Promise((resolve, reject) => {
+        reject("Always fails");
+    });
+    const pSlow = new Promise((resolve, reject) => {
+        setTimeout(resolve, 500, "Done eventually");
+    });
+    const pFast = new Promise((resolve, reject) => {
+        setTimeout(resolve, 100, "Done quick");
+    });
+
+    Promise.any([pErr, pSlow, pFast]).then((value) => {
+        console.log(value);
+        // pFast fulfils first
+    });
+    // expected output: "Done quick"
+}
+
+/**
+ * Rejections with AggregateError
+ * Promise.any() rejects with an AggregateError if no promise fulfils.
+ */
+function test6_3() {
+    const pErr = new Promise((resolve, reject) => {
+        reject("Always fails");
+    });
+
+    Promise.any([pErr]).catch((err) => {
+        console.log(err);
+    });
+    // expected output: "AggregateError: No Promise in Promise.any was resolved"
+}
+
+/**
+ * Displaying the first image loaded
+ * In this example, we have a function that fetches an image and returns a blob.
+ * We use Promise.any() to fetch a couple of images and display the first one available
+ * (i.e. whose promise has resolved).
+ */
+function test6_4() {
+
 }
