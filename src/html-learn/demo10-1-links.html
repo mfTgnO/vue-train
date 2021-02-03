@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Links</title>
+    <!--
+    https://www.w3schools.com/html/html_links.asp
+    Note: A link does not have to be text. A link can be an image or any other HTML element!
+
+    By default, links will appear as follows in all browsers:
+
+    An unvisited link is underlined and blue
+    A visited link is underlined and purple
+    An active link is underlined and red
+
+    HTML Links - The target Attribute
+    By default, the linked page will be displayed in the current browser window. To change this, you must specify another target for the link.
+    The target attribute specifies where to open the linked document.
+    The target attribute can have one of the following values:
+    _self - Default. Opens the document in the same window/tab as it was clicked
+    _blank - Opens the document in a new window or tab
+    _parent - Opens the document in the parent frame
+    _top - Opens the document in the full body of the window
+
+    Chapter Summary
+    Use the <a> element to define a link
+    Use the href attribute to define the link address
+    Use the target attribute to define where to open the linked document
+    Use the <img> element (inside <a>) to use an image as a link
+    Use the mailto: scheme inside the href attribute to create a link that opens the user's email program
+    -->
+</head>
+<body>
+<!--Absolute URLs-->
+<a href="https://cn.bing.com/">Visit https://cn.bing.com/</a>
+<br>
+<a href="https://translate.google.cn/" target="_blank">Google Translate/</a>
+</body>
+<!--Relative URLs-->
+<p><a href="image/1300510.jpg" target="_blank">HTML Images</a></p>
+
+<!--
+HTML Links - Use an Image as a Link
+To use an image as a link, just put the <img> tag inside the <a> tag:
+-->
+<a href="image/1357386713-Untitled4-o.jpg">
+    <img src="image/1300510.jpg" alt="HTML tutorial" style="width:42px;height:42px;">
+</a>
+
+<!--
+Link to an Email Address
+Use mailto: inside the href attribute to create a link that opens the user's email program (to let them send a new email):
+-->
+<br>
+<a href="mailto:someone@example.com">Send email</a>
+
+<!--
+Button as a Link
+To use an HTML button as a link, you have to add some JavaScript code.
+JavaScript allows you to specify what happens at certain events, such as a click of a button:
+-->
+<br>
+<button onclick="document.location='image/1357386713-Untitled4-o.jpg'">HTML Tutorial</button>
+
+<!--
+Link Titles
+The title attribute specifies extra information about an element. The information is most often shown as a tooltip text when the mouse moves over the element.
+-->
+<br>
+<a href="https://www.w3schools.com/html/" title="Go to W3Schools HTML section">Visit our HTML Tutorial</a>
+</html>
