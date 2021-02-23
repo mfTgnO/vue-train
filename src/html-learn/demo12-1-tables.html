@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Tables</title>
+    <!--
+    https://www.w3schools.com/html/html_tables.asp
+
+    Define an HTML Table
+    The <table> tag defines an HTML table.
+    Each table row is defined with a <tr> tag. Each table header is defined with a <th> tag. Each table data/cell is defined with a <td> tag.
+    By default, the text in <th> elements are bold and centered.
+    By default, the text in <td> elements are regular and left-aligned.
+    -->
+</head>
+
+<style>
+    /*
+    To add a border to a table, use the CSS border property:
+    Remember to define borders for both the table and the table cells.
+    */
+    table, th, td {
+        border: 1px solid black;
+        /*To let the borders collapse into one border, add the CSS border-collapse property:*/
+        /*border-collapse: collapse;*/
+    }
+
+    /*
+    HTML Table - Add Cell Padding
+    Cell padding specifies the space between the cell content and its borders.
+    If you do not specify a padding, the table cells will be displayed without padding.
+    To set the padding, use the CSS padding property:
+    */
+    th, td {
+        padding: 15px;
+    }
+
+    /*
+    HTML Table - Left-align Headings
+    By default, table headings are bold and centered.
+    To left-align the table headings, use the CSS text-align property:
+    */
+    th {
+        text-align: left;
+    }
+
+    /*
+    HTML Table - Add Border Spacing
+    Border spacing specifies the space between the cells.
+    To set the border spacing for a table, use the CSS border-spacing property:
+
+    Note: If the table has collapsed borders, border-spacing has no effect.
+    */
+    table {
+        border-spacing: 20px;
+    }
+</style>
+<body>
+<h2>Basic HTML Table</h2>
+
+<table style="width: 100%">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+    </tr>
+    <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>80</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Background Images</title>
+    <!--
+    https://www.w3schools.com/html/html_images_background.asp
+
+    Background Cover
+    If you want the background image to cover the entire element, you can set the background-size property to cover.
+
+    Also, to make sure the entire element is always covered, set the background-attachment property to fixed:
+
+    This way, the background image will cover the entire element, with no stretching (the image will keep its original proportions):
+    -->
+    <style>
+        body {
+            background-image: url("./image/img_girl.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<h2>Background Image</h2>
+
+<p>By default, the background image will repeat itself if it is smaller than the element where it is specified, in this
+    case the body element.</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo11-1-images.html</title>
+    <!--
+    https://www.w3schools.com/html/html_images_imagemap.asp
+
+    Shape
+    You must define the shape of the clickable area, and you can choose one of these values:
+
+    rect - defines a rectangular region
+    circle - defines a circular region
+    poly - defines a polygonal region
+    default - defines the entire region
+    -->
+</head>
+<body>
+<img src="image/workplace.jpg" alt="Workplace" usemap="#workmap">
+<map name="workmap">
+    <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+    <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+    <area shape="circle" coords="337,300,44" alt="Coffee" onclick="myFunction()">
+</map>
+<script>
+    function myFunction() {
+        alert("You clicked the coffee cup!");
+    }
+</script>
+</body>
+</html>

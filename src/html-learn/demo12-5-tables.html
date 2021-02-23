@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Tables</title>
+    <!--
+    https://www.w3schools.com/html/html_tables.asp
+
+    A Special Style for One Table
+    To define a special style for one particular table, add an id attribute to the table:
+    -->
+</head>
+
+<style>
+    /*
+    To add a border to a table, use the CSS border property:
+    Remember to define borders for both the table and the table cells.
+    */
+    table, th, td {
+        border: 1px solid black;
+        /*To let the borders collapse into one border, add the CSS border-collapse property:*/
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    #t01 {
+        width: 100%;
+        background-color: #f1f1c1;
+    }
+</style>
+<body>
+<h2>Styling Tables</h2>
+
+<table style="width:100%">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+    </tr>
+    <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>80</td>
+    </tr>
+</table>
+<br>
+
+<table id="t01">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+    </tr>
+    <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>80</td>
+    </tr>
+</table>
+</body>
+</html>

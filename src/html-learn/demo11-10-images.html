@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML <picture> Element</title>
+    <!--
+    https://www.w3schools.com/html/html_images_picture.asp
+    Format Support
+    -->
+</head>
+<body>
+<h2>The picture Element</h2>
+
+<picture>
+    <source srcset="./image/img_avatar.png">
+    <source srcset="./image/img_girl.jpg">
+    <img src="./image/img_car.jpg" alt="Car" style="width:auto;">
+</picture>
+
+<p>The picture element can be used when the image format is not supported by all devices.</p>
+
+<p>The device will use the first image format it supports, and ignore the rest of the images.</p>
+</body>
+</html>
