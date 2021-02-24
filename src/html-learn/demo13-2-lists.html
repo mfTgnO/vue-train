@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Unordered Lists</title>
+    <!--
+    https://www.w3schools.com/html/html_lists_unordered.asp
+
+    Unordered HTML List - Choose List Item Marker
+    The CSS list-style-type property is used to define the style of the list item marker. It can have one of the following values:
+
+    disc	Sets the list item marker to a bullet (default)
+    circle	Sets the list item marker to a circle
+    square	Sets the list item marker to a square
+    none	The list items will not be marked
+    -->
+</head>
+
+<body>
+<ul>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ul>
+<br>
+
+<ul style="list-style-type: disc">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ul>
+<br>
+
+<ul style="list-style-type: circle">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ul>
+<br>
+
+<ul style="list-style-type: square">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ul>
+<br>
+
+<ul style="list-style-type: none">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ul>
+<br>
+
+<!--
+Nested HTML Lists
+Lists can be nested (list inside list):
+Note: A list item (<li>) can contain a new list, and other HTML elements, like images and links, etc.
+-->
+<ul>
+    <li>Coffee</li>
+    <li>Tea
+        <ul>
+            <li>Black tea</li>
+            <li>Green tea</li>
+        </ul>
+    </li>
+    <li>Milk</li>
+</ul>
+</body>
+</html>
