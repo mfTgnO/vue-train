@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML File Paths</title>
+    <!--
+    https://www.w3schools.com/html/html_filepaths.asp
+
+    A file path describes the location of a file in a web site's folder structure.
+
+    File Path Examples
+    Path	Description
+    <img src="picture.jpg">	        The "picture.jpg" file is located in the same folder as the current page
+    <img src="images/picture.jpg">	The "picture.jpg" file is located in the images folder in the current folder
+    <img src="/images/picture.jpg">	The "picture.jpg" file is located in the images folder at the root of the current web
+    <img src="../picture.jpg">	    The "picture.jpg" file is located in the folder one level up from the current folder
+
+    Best Practice
+    It is best practice to use relative file paths (if possible).
+
+    When using relative file paths, your web pages will not be bound to your current base URL. All links will work on your own computer (localhost) as well as on your current public domain and your future public domains.
+    -->
+</head>
+<body>
+<!--
+Absolute File Paths
+An absolute file path is the full URL to a file:
+-->
+<h2>Using a Full URL File Path</h2>
+<img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain" style="width:300px">
+
+<!--
+Relative File Paths
+A relative file path points to a file relative to the current page.
+
+In the following example, the file path points to a file in the images folder located at the root of the current web:
+-->
+<h2>Using a Relative File Path</h2>
+<img src="/images/1357386713-Untitled4-o.jpg" alt="Mountain" style="width:300px">
+
+<!--
+In the following example, the file path points to a file in the images folder located in the current folder:
+-->
+<h2>Using a Relative File Path</h2>
+<img src="images/picture.jpg" alt="Mountain" style="width:300px">
+
+<!--
+In the following example, the file path points to a file in the images folder located in the folder one level up from the current folder:
+-->
+<h2>Using a Relative File Path</h2>
+<img src="../images/picture.jpg" alt="Mountain" style="width:300px">
+</body>
+</html>

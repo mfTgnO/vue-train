@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Iframes</title>
+    <!--
+    https://www.w3schools.com/html/html_iframe.asp
+
+    An HTML iframe is used to display a web page within a web page.
+
+
+    -->
+</head>
+<body>
+<!--
+HTML Iframe Syntax
+The HTML <iframe> tag specifies an inline frame.
+
+An inline frame is used to embed another document within the current HTML document.
+
+Tip: It is a good practice to always include a title attribute for the <iframe>. This is used by screen readers to read out what the content of the iframe is.
+
+Iframe - Set Height and Width
+Use the height and width attributes to specify the size of the iframe.
+
+The height and width are specified in pixels by default:
+-->
+<h2>HTML Iframes</h2>
+<p>You can use the height and width attributes to specify the size of the iframe:</p>
+<iframe src="demo17-1-iframe.html" height="200" width="300" title="Iframe Example"></iframe>
+
+<!--
+Or you can add the style attribute and use the CSS height and width properties:
+-->
+<h2>HTML Iframes</h2>
+<p>You can use the height and width attributes to specify the size of the iframe:</p>
+<iframe src="demo17-1-iframe.html" style="height: 200px;width: 300px" title="Iframe Example"></iframe>
+
+<!--
+Iframe - Remove the Border
+By default, an iframe has a border around it.
+
+To remove the border, add the style attribute and use the CSS border property:
+-->
+<h2>HTML Iframes</h2>
+<p>You can use the height and width attributes to specify the size of the iframe:</p>
+<iframe src="demo17-1-iframe.html" style="height: 200px;width: 300px;border: none" title="Iframe Example"></iframe>
+
+<!--
+With CSS, you can also change the size, style and color of the iframe's border:
+-->
+<h2>HTML Iframes</h2>
+<p>You can use the height and width attributes to specify the size of the iframe:</p>
+<iframe src="demo17-1-iframe.html" style="height: 200px;width: 300px;border: 2px solid red" title="Iframe Example"></iframe>
+
+<!--
+Iframe - Target for a Link
+An iframe can be used as the target frame for a link.
+
+The target attribute of the link must refer to the name attribute of the iframe:
+-->
+<h2>Iframe - Target for a Link</h2>
+<iframe src="demo17-1-iframe.html" name="iframe_a" style="height: 600px;width: 800px;border: none" title="Iframe Example"></iframe>
+<p><a href="https://www.baidu.com/" target="iframe_a">百度</a></p>
+</body>
+</html>
