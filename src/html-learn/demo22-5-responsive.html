@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Responsive Web Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+    https://www.w3schools.com/html/html_responsive.asp
+
+    Show Different Images Depending on Browser Width
+    The HTML <picture> element allows you to define different images for different browser window sizes.
+
+    Resize the browser window to see how the image below change depending on the width:
+    -->
+</head>
+<body>
+<h2>Show Different Images Depending on Browser Width</h2>
+<p>Resize the browser width and the image will change at 600px and 1500px.</p>
+
+<picture>
+    <source srcset="image/img_smallflower.jpg" media="(max-width: 600px)">
+    <source srcset="image/img_flowers.jpg" media="(max-width: 1500px)">
+    <source srcset="image/flowers.jpg">
+    <img src="image/img_flowers.jpg" alt="Flowers" style="width: auto">
+</picture>
+</body>
+</html>
