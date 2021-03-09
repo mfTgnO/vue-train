@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Semantic Elements</title>
+    <!--
+    https://www.w3schools.com/html/html5_semantic_elements.asp
+
+    Semantic elements = elements with a meaning.
+
+
+    What are Semantic Elements?
+    A semantic element clearly describes its meaning to both the browser and the developer.
+
+    Examples of non-semantic elements: <div> and <span> - Tells nothing about its content.
+
+    Examples of semantic elements: <form>, <table>, and <article> - Clearly defines its content.
+
+    Semantic Elements in HTML
+    Below is a list of some of the semantic elements in HTML.
+    Tag	            Description
+    <article>	    Defines independent, self-contained content
+    <aside>	        Defines content aside from the page content
+    <details>	    Defines additional details that the user can view or hide
+    <figcaption>	Defines a caption for a <figure> element
+    <figure>	    Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+    <footer>	    Defines a footer for a document or section
+    <header>	    Specifies a header for a document or section
+    <main>	        Specifies the main content of a document
+    <mark>	        Defines marked/highlighted text
+    <nav>	        Defines navigation links
+    <section>	    Defines a section in a document
+    <summary>	    Defines a visible heading for a <details> element
+    <time>	        Defines a date/time
+    -->
+
+    <style>
+        .all-browsers {
+            margin: 0px;
+            padding: 5px;
+            background-color: lightgray;
+        }
+
+        .all-browsers > h1, .browser {
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .browser {
+            background: white;
+        }
+
+        .browser > h2, p {
+            margin: 4px;
+            font-size: 90%;
+        }
+
+        .aside-style {
+            width: 30%;
+            padding-left: 15px;
+            margin-left: 15px;
+            float: right;
+            font-style: italic;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<!--
+HTML <section> Element
+The <section> element defines a section in a document.
+
+According to W3C's HTML documentation: "A section is a thematic grouping of content, typically with a heading."
+
+A web page could normally be split into sections for introduction, content, and contact information.
+-->
+<section>
+    <h1>WWF</h1>
+    <p>The World Wide Fund for Nature (WWF) is an international organization working on issues regarding the
+        conservation, research and restoration of the environment, formerly named the World Wildlife Fund. WWF was
+        founded in 1961.</p>
+</section>
+<section>
+    <h1>WWF's Panda symbol</h1>
+    <p>The Panda has become the symbol of WWF. The well-known panda logo of WWF originated from a panda named Chi Chi
+        that was transferred from the Beijing Zoo to the London Zoo in the same year of the establishment of WWF.</p>
+</section>
+<hr>
+
+<!--
+HTML <article> Element
+The <article> element specifies independent, self-contained content.
+
+An article should make sense on its own, and it should be possible to distribute it independently from the rest of the web site.
+
+Examples of where an <article> element can be used:
+
+Forum post
+Blog post
+Newspaper article
+-->
+<article>
+    <h2>Google Chrome</h2>
+    <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web
+        browser today!</p>
+</article>
+<article>
+    <h2>Mozilla Firefox</h2>
+    <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular web
+        browser since January, 2018.</p>
+</article>
+<article>
+    <h2>Microsoft Edge</h2>
+    <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced Internet
+        Explorer.</p>
+</article>
+<hr>
+
+<!--Use CSS to style the <article> element:-->
+<article class="all-browsers">
+    <h1>Most Popular Browsers</h1>
+
+    <article class="browser">
+        <h2>Google Chrome</h2>
+        <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web
+            browser today!</p>
+    </article>
+
+    <article class="browser">
+        <h2>Mozilla Firefox</h2>
+        <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular
+            web browser since January, 2018.</p>
+    </article>
+
+    <article class="browser">
+        <h2>Microsoft Edge</h2>
+        <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced Internet
+            Explorer.</p>
+    </article>
+</article>
+<hr>
+
+<!--
+HTML <header> Element
+The <header> element represents a container for introductory content or a set of navigational links.
+
+A <header> element typically contains:
+
+one or more heading elements (<h1> - <h6>)
+logo or icon
+authorship information
+Note: You can have several <header> elements in one HTML document. However, <header> cannot be placed within a <footer>, <address> or another <header> element.
+-->
+<article>
+    <header>
+        <h1>What Does WWF Do?</h1>
+        <p>WWF's mission:</p>
+    </header>
+    <p>WWF's mission is to stop the degradation of our planet's natural environment, and build a future in which humans
+        live in harmony with nature.</p>
+</article>
+<hr>
+
+<!--
+HTML <footer> Element
+The <footer> element defines a footer for a document or section.
+
+A <footer> element typically contains:
+
+authorship information
+copyright information
+contact information
+sitemap
+back to top links
+related documents
+You can have several <footer> elements in one document.
+-->
+<footer>
+    <p>Author: Hege Refsnes</p>
+    <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+</footer>
+<hr>
+<!--
+HTML <nav> Element
+The <nav> element defines a set of navigation links.
+
+Notice that NOT all links of a document should be inside a <nav> element. The <nav> element is intended only for major block of navigation links.
+
+Browsers, such as screen readers for disabled users, can use this element to determine whether to omit the initial rendering of this content.
+-->
+<nav>
+    <a href="/html/">HTML</a> |
+    <a href="/css/">CSS</a> |
+    <a href="/js/">JavaScript</a> |
+    <a href="/jquery/">jQuery</a>
+</nav>
+<hr>
+
+<!--
+HTML <aside> Element
+The <aside> element defines some content aside from the content it is placed in (like a sidebar).
+
+The <aside> content should be indirectly related to the surrounding content.
+-->
+<p>My family and I visited The Epcot center this summer. The weather was nice, and Epcot was amazing! I had a great
+    summer together with my family!</p>
+<aside>
+    <h4>Epcot Center</h4>
+    <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions,
+        award-winning fireworks and seasonal special events.</p>
+</aside>
+<hr>
+
+<!--Use CSS to style the <aside> element:-->
+<p>My family and I visited The Epcot center this summer. The weather was nice, and Epcot was amazing! I had a great
+    summer together with my family!</p>
+<aside class="aside-style">
+    <p>The Epcot center is a theme park at Walt Disney World Resort featuring exciting attractions, international
+        pavilions, award-winning fireworks and seasonal special events.</p>
+</aside>
+<p>My family and I visited The Epcot center this summer. The weather was nice, and Epcot was amazing! I had a great
+    summer together with my family!</p>
+<p>My family and I visited The Epcot center this summer. The weather was nice, and Epcot was amazing! I had a great
+    summer together with my family!</p>
+<hr>
+
+<!--
+HTML <figure> and <figcaption> Elements
+The <figure> tag specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+
+The <figcaption> tag defines a caption for a <figure> element. The <figcaption> element can be placed as the first or as the last child of a <figure> element.
+
+The <img> element defines the actual image/illustration.
+-->
+<h2>Places to Visit</h2>
+
+<p>Puglia's most famous sight is the unique conical houses (Trulli) found in the area around Alberobello, a declared UNESCO World Heritage Site.</p>
+<figure>
+    <img src="image/pic_trulli.jpg" alt="Trulli" style="width: 100%">
+    <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+</figure>
+</body>
+</html>
