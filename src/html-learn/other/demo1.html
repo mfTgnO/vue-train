@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DIV高度自适应全屏</title>
+    <!--
+    https://www.jianshu.com/p/f2c9afe721c7
+    -->
+</head>
+<style>
+    html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .outer {
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .A {
+        height: 100%;
+        background: #BBE8F2;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .B {
+        height: 100%;
+        width: 50%;
+        background: #D9C666;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .insertA, .insertB {
+        width: 90%;
+        margin: auto;
+        border: 1px solid;
+        height: 30%;
+        margin-top: 15px;
+    }
+</style>
+<body>
+<div class="outer" id="outer">
+    <div class="A">
+        <div class="insertA A1"></div>
+        <div class="insertA A2"></div>
+        <div class="insertA A3"></div>
+        <div class="insertA A4"></div>
+        <div class="insertA A5" style="margin-bottom:1%;"></div>
+    </div>
+    <div class="B">
+        <div class="insertB B1"></div>
+        <div class="insertB B2"></div>
+        <div class="insertB B3"></div>
+        <div class="insertB B4"></div>
+        <div class="insertB B5" style="margin-bottom:1%;"></div>
+    </div>
+</div>
+<script>
+    addEventListener("click", function () {
+        var el = document.documentElement,
+            rfs = el.requestFullscreen
+                || el.webkitRequestFullScreen
+                || el.mozRequestFullScreen
+                || el.msRequestFullscreen
+        ;
+        rfs.call(el);
+    });
+</script>
+</body>
+</html>
