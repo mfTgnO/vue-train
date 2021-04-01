@@ -1,4 +1,5 @@
-test1();
+// test1();
+test2();
 
 /**
  *
@@ -13,6 +14,18 @@ function test1() {
                 continue;
             }
             console.log("i: " + i + ", j: " + j);
+        }
+    }
+}
+
+function test2() {
+    var arr = [1, 2, 3, 4, 5];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 3) {
+            console.log("equal:" + arr[i]);
+            break;
+        } else {
+            console.log(arr[i]);
         }
     }
 }

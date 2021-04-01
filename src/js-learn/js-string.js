@@ -1,5 +1,5 @@
 // test1();
-test2();
+// test2();
 
 // test3();
 // test4();
@@ -47,6 +47,7 @@ test2();
 // test46();
 // test47();
 // test48();
+test49();
 
 /**
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -1076,4 +1077,13 @@ function test48() {
     console.log(s);
     var x = s + "roundexamdetail.htm";
     console.log(x);
+}
+
+function test49() {
+    // var id = '371402197212097416';
+    var id = '37140219';
+    var year = id.substring(6, 10);
+    var month = id.substring(10, 12);
+    console.log(year);
+    console.log(month);
 }
