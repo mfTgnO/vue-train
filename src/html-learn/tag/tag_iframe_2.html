@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+    How to set fullscreen iframe?
+    https://www.geeksforgeeks.org/how-to-set-fullscreen-iframe/#:~:text=%20Steps%20to%20do%20for%20fullscreen%20Iframe%3A%20,properties%20to%20resolve%20cross-browser%20issues%3A%20%3Ciframe%20src%3D%22myurl.in%22...%20More
+    -->
+    <style type="text/css">
+        html {
+            overflow: auto;
+        }
+
+        html,
+        body,
+        div,
+        iframe {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            border: none;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            border: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+<div style="height: 30px;">
+    <button type="button">
+        <a href="./tag_iframe_1.html">
+            返回
+        </a>
+    </button>
+</div>
+<div>
+    <iframe src="https://cn.bing.com/"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            width="100%"
+            height="100%"
+            scrolling="auto">
+    </iframe>
+</div>
+
+</body>
+</html>

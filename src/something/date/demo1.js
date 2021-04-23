@@ -17,6 +17,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
 
 var data = {};
 var date = new Date();
+var current_date = new Date();
 
 // 当前月份第一天
 data.nowtimestart = new Date(date.getFullYear(), date.getMonth(), 1).Format("yyyy-MM-dd 00:00:00");
@@ -28,3 +29,5 @@ data.nowtimeend = new Date(date.getFullYear(), date.getMonth() + 1, 0).Format("y
 // console.log(myDate);
 
 console.log(data);
+console.log(current_date);
+console.log(current_date.Format("yyyy-MM-dd HH:mm:ss"));
