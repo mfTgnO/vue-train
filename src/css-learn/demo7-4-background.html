@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Backgrounds</title>
+    <!--
+    https://www.w3schools.com/css/css_background.asp
+
+    Transparency using RGBA
+    If you do not want to apply opacity to child elements, like in our example above,
+    use RGBA color values. The following example sets the opacity for the background color and not the text:
+
+    You learned from our CSS Colors Chapter, that you can use RGB as a color value. In addition to RGB,
+    you can use an RGB color value with an alpha channel (RGBA) - which specifies the opacity for a color.
+
+    An RGBA color value is specified with: rgba(red, green, blue, alpha). The alpha parameter is a number
+    between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+    Tip: You will learn more about RGBA Colors in our CSS Colors Chapter.
+    -->
+    <style>
+        div {
+            background-color: green;
+        }
+
+        div.first {
+            opacity: 0.1;
+        }
+
+        div.second {
+            opacity: 0.3;
+        }
+
+        div.third {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+<h1>Transparent Box</h1>
+<p>With opacity:</p>
+
+<div class="first">
+    <h1>opacity 0.1</h1>
+</div>
+<div class="second">
+    <h1>opacity 0.3</h1>
+</div>
+<div class="third">
+    <h1>opacity 0.6</h1>
+</div>
+<div>
+    <h1>opacity 1 (default)</h1>
+</div>
+</body>
+</html>
