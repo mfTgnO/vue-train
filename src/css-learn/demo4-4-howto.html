@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <!--
+    https://www.w3schools.com/css/css_selectors.asp
+
+    Multiple Style Sheets
+    If some properties have been defined for the same selector (element) in different style sheets,
+    the value from the last read style sheet will be used.
+    -->
+    <!--
+    If the internal style is defined after the link to the external style sheet, the <h1> elements will be "orange":
+    -->
+    <link rel="stylesheet" href="css/mystyle.css">
+    <style>
+        h1 {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+<h1>This is a heading</h1>
+<p>The style of this document is a combination of an external stylesheet, and internal style</p>
+</body>
+</html>

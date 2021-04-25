@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Input form* Attributes</title>
+    <!--
+        https://www.w3schools.com/html/html_form_attributes_form.asp
+
+        This chapter describes the different form* attributes for the HTML <input> element.
+    -->
+</head>
+<body>
+<!--
+The form Attribute
+The input form attribute specifies the form the <input> element belongs to.
+
+The value of this attribute must be equal to the id attribute of the <form> element it belongs to.
+-->
+<form action="" id="form1">
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname"><br><br>
+    <input type="submit" value="Submit">
+</form>
+<label for="lname">Last name:</label>
+<input type="text" id="lname" name="lname" form="form1">
+</body>
+</html>
