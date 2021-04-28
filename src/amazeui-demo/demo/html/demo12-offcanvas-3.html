@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>OffCanvas</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="../../assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="../../assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="../../assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <link rel="stylesheet" href="../../assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="../../assets/css/app.css">
+    <!--
+    http://amazeui.shopxo.net/javascript/offcanvas/
+    -->
+</head>
+<body>
+<!--在这里编写你的代码-->
+
+<!--
+右侧显示
+边栏默认显示在左侧，在内容容器上添加 .am-offcanvas-bar-flip class 调整为右侧。
+-->
+
+<!-- 按钮触发器， 需要指定 target -->
+<button class="am-btn am-btn-success" data-am-offcanvas="{target: '#doc-oc-demo3'}">右侧显示边栏</button>
+
+<!-- 侧边栏内容 -->
+<div id="doc-oc-demo3" class="am-offcanvas">
+    <div class="am-offcanvas-bar am-offcanvas-bar-flip" style="background-color: white">
+        <div class="am-offcanvas-content">
+            <!--<p>
+                我不愿让你一个人 <br/>
+                承受这世界的残忍 <br/>
+                我不愿眼泪陪你到 永恒 <br/>
+            </p>
+            <p><a href="http://music.163.com/#/song?id=385554" target="_blank">网易音乐</a>      </p>-->
+            <ul class="am-list list-one">
+                <li><p>姓名</p><span ng-model="personinfo.personname">aa</span></li>
+                <li><p>性别</p><span ng-model="personinfo.sexname">{{personinfo.sexname}}</span></li>
+                <li><p>民族</p><span  ng-model="personinfo.nation">{{personinfo.nation}}</span></li>
+                <li><p>出生年月</p><span ng-model="personinfo.birthday">{{personinfo.birthday}}</span></li>
+                <li><p>最高学历</p><span  ng-model="personinfo.highestdegree">{{personinfo.highestdegree}}</span></li>
+                <li><p>毕业院校</p><span  ng-model="personinfo.school">{{personinfo.school}}</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="../../assets/js/jquery-3.6.0.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="../../assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="../../assets/js/amazeui.min.js"></script>
+
+</body>
+</html>

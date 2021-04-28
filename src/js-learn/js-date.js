@@ -52,7 +52,8 @@
 // test24();
 // test25();
 // test26();
-test27();
+// test27();
+test27_1();
 
 /**
  * Date.now()
@@ -118,11 +119,11 @@ function test2() {
     const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
 
     // British English uses day-month-year order and 24-hour time without AM/PM
-    console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' }));
+    console.log(event.toLocaleString('en-GB', {timeZone: 'UTC'}));
     // expected output: 20/12/2012, 03:00:00
 
     // Korean uses year-month-day order and 12-hour time with AM/PM
-    console.log(event.toLocaleString('ko-KR', { timeZone: 'UTC' }));
+    console.log(event.toLocaleString('ko-KR', {timeZone: 'UTC'}));
     // expected output: 2012. 12. 20. 오전 3:00:00
 }
 
@@ -795,7 +796,7 @@ function test24() {
 function test25() {
     const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
 
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
 
     console.log(event.toLocaleDateString('de-DE', options));
     // expected output: Donnerstag, 20. Dezember 2012
@@ -858,5 +859,15 @@ function test27() {
 
     console.log(date2.valueOf());
     // expected output: 823230245000
+
+}
+
+function test27_1() {
+    const date1 = new Date("1970-01-01");
+    const date2 = new Date("1970-01-02");
+
+    console.log(date1);
+    console.log(date2);
+    console.log(date1 > date2);
 
 }

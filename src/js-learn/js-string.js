@@ -47,7 +47,8 @@
 // test46();
 // test47();
 // test48();
-test49();
+// test49();
+test50();
 
 /**
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -1086,4 +1087,17 @@ function test49() {
     var month = id.substring(10, 12);
     console.log(year);
     console.log(month);
+}
+
+function test50() {
+    var str = "2,3,6";
+    var split = str.split(",");
+    console.log(split);
+
+    console.log(split.includes("2"));
+    console.log(split.includes("3"));
+    console.log(split.includes("4"));
+    console.log(split.includes("5"));
+    console.log(split.includes("6"));
+
 }
