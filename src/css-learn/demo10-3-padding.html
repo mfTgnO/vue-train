@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Padding</title>
+    <!--
+    https://www.w3schools.com/css/css_padding.asp
+
+    Padding and Element Width
+    The CSS width property specifies the width of the element's content area.
+    The content area is the portion inside the padding, border, and margin of an element (the box model).
+
+    So, if an element has a specified width, the padding added to that element will
+    be added to the total width of the element. This is often an undesirable result.
+    -->
+    <style>
+        /*Here, the <div> element is given a width of 300px. However, the actual width of the <div>
+        element will be 350px (300px + 25px of left padding + 25px of right padding):*/
+        div.ex1 {
+            width: 300px;
+            background-color: yellow;
+        }
+
+        div.ex2 {
+            width: 300px;
+            padding: 25px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<h2>Padding and element width</h2>
+
+<div class="ex1">This div is 300px wide.</div>
+<br>
+
+<div class="ex2">The width of this div is 350px, even though it is defined as 300px in the CSS.</div>
+</body>
+</html>
