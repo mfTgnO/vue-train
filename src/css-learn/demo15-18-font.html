@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Font Size</title>
+    <!--
+    https://www.w3schools.com/css/css_font_size.asp
+
+    Use a Combination of Percent and Em
+    The solution that works in all browsers, is to set a default font-size in percent for the <body> element:
+    -->
+
+    <!--
+    Our code now works great! It shows the same text size in all browsers, and allows all browsers to zoom or resize the text!
+    -->
+    <style>
+        body {
+            font-size: 100%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 1.875em;
+        }
+
+        p {
+            font-size: 0.875em;
+        }
+    </style>
+</head>
+<body>
+<h1>This is heading 1</h1>
+<h2>This is heading 2</h2>
+<p>This is a paragraph.</p>
+<p>Specifying the font-size in percent and em displays the same size in all major browsers, and allows all browsers to
+    resize the text!</p>
+</body>
+</html>
